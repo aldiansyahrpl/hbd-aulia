@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HBD AULIA</title>
+    <style>
+      /* General styles */
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f8ff;
+      }
+
+      /* Hero section styles */
+      .hero {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(to right, #ff7e5f, #feb47b);
+      }
+
+      .hero div {
+        position: relative;
+        text-align: center;
+      }
+
+      .hero img {
+        max-width: 50%;
+        height: auto;
+        border: 5px solid #fff;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+        filter: brightness(0.7); /* Apply filter to reduce brightness */
+      }
+
+      .hero img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        filter: brightness(0.5); /* Further reduce brightness on hover */
+      }
+
+      .hero .overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 24px;
+        background: rgba(0, 0, 0, 0.6);
+        background: linear-gradient(45deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+        padding: 20px 30px;
+        border-radius: 10px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        border: 2px solid #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .hero div:hover .overlay {
+        opacity: 1;
+      }
+
+      /* Responsive styles */
+      @media (max-width: 768px) {
+        .hero {
+          padding: 20px;
+        }
+
+        .hero img {
+          max-width: 80%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero img {
+          max-width: 90%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <audio id="bg-audio" src="audio/happy_birthday.mp3" autoplay loop></audio>
+    <section class="hero">
+      <div>
+        <img src="img/WhatsApp Image 2024-06-06 at 10.44.36.jpeg" />
+        <div class="overlay">Happy Birthday Aulia!</div>
+      </div>
+    </section>
+    <script>
+      // Play audio when the page loads
+      const audio = document.getElementById('bg-audio');
+      audio.play();
+
+      // Optionally, you can control the audio on hover
+      const heroDiv = document.querySelector('.hero div');
+      heroDiv.addEventListener('mouseenter', () => {
+        audio.play();
+      });
+      heroDiv.addEventListener('mouseleave', () => {
+        audio.pause();
+      });
+    </script>
+  </body>
+</html>
